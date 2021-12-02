@@ -1,0 +1,12 @@
+GEM
+  specs:
+    minitest (5.14.4)
+
+PLATFORMS
+  universal-darwin-21
+
+DEPENDENCIES
+  minitest (~> 5.14)
+
+BUNDLED WITH
+   2.2.22
