@@ -17,6 +17,6 @@ class DiveTest < MiniTest::Unit::TestCase
     commands.each { |cmd| submarine.call(cmd) }
 
     assert_equal 15, submarine.x
-    assert_equal 10, submarine.z
+    assert_equal 60, submarine.z
   end
 end

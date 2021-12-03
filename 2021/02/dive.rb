@@ -1,9 +1,10 @@
 class Dive
-  attr_reader :x, :z
+  attr_reader :x, :z, :aim
 
   def initialize
     @x = 0
     @z = 0
+    @aim = 0
   end
 
   def call(command)
@@ -11,10 +12,21 @@ class Dive
     direction = args[0]
     distance = args[1].to_i
 
-    case direction
-    when "forward" then @x += distance
-    when "up" then @z -= distance
-    when "down" then @z += distance
-    end
+    send(direction.to_sym, distance)
+  end
+
+  private
+
+  def forward(distance)
+    @x += distance
+    @z += (aim * distance)
+  end
+
+  def up(distance)
+    @aim -= distance
+  end
+
+  def down(distance)
+    @aim += distance
   end
 end
