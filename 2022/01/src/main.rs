@@ -2,7 +2,6 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-// TODO: Maybe pass in the file name as an argument to the program?
 fn main() {
     if let Ok(lines) = read_lines("input.txt") {
         let mut calorie_counts = Vec::new();
@@ -21,8 +20,8 @@ fn main() {
         }
 
         calorie_counts.sort();
-        let last = calorie_counts.last().unwrap();
-        println!("{}", last);
+        let sum: i32 = calorie_counts.iter().rev().take(3).sum();
+        println!("{}", sum);
     }
 }
 
