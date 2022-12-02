@@ -1,12 +1,10 @@
-global_max = 0
+counts = []
 current_calorie_count = 0
 
 File.open("input.txt").each do |line|
   line.chomp!
   if line.empty?
-    if current_calorie_count > global_max
-      global_max = current_calorie_count
-    end
+    counts << current_calorie_count
     current_calorie_count = 0
   else
     calories = line.to_i
@@ -14,4 +12,5 @@ File.open("input.txt").each do |line|
   end
 end
 
-puts global_max
+top_three = counts.sort.last(3)
+puts top_three.sum
